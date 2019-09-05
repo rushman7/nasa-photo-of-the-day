@@ -20,13 +20,14 @@ function Photo() {
     const fetchPhoto = () => 
       axios.get(`https://api.nasa.gov/planetary/apod?api_key=2IHlxCsWWLtexHqizaiDCbZeuFMy929Fb9XqdxOx&date=${yyyy}-${mm}-${dd}`)
         .then(photo => {
-          setPhoto(photo.data.url)
+          setPhoto(photo.data.hdurl)
           setTitle(photo.data.title)
           setAbout(photo.data.explanation)
           setDate(photo.data.date)
+          console.log(photo);
         });
       fetchPhoto()
-  }, [onChange])
+  }, [dd, mm, yyyy])
 
   return (
     <div className="photo-div">
