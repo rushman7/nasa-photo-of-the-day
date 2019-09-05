@@ -1,7 +1,6 @@
 import React from 'react';
 import Photo from './components/Photo';
 import styled from 'styled-components';
-// import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const StyledApp = styled.div`

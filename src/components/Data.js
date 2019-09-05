@@ -1,12 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const DataDiv = styled.div`
+  width: 75%;
+  margin: 10px auto;
+  padding: 2%;
+
+  @media (min-width: 800px) {
+    max-width: 600px;
+  }
+`;
 
 function Data(props) {
   return (
-    <div className="data">
+    <DataDiv>
       <h2>{props.title}</h2>
       <h3>{props.date}</h3>
       <p>{props.about}</p>
-    </div>
+    </DataDiv>
   )
 }
 

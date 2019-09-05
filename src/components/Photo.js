@@ -2,6 +2,27 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Data from './Data';
 import DatePicker from 'react-date-picker';
+import styled from 'styled-components';
+
+const StyledPhoto = styled.img`
+  width: 80%;
+  margin: 30px auto 0px auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  -webkit-box-shadow: 0px 1px 18px 3px rgba(0,0,0,0.77);
+  -moz-box-shadow: 0px 1px 18px 3px rgba(0,0,0,0.77);
+  box-shadow: 0px 1px 18px 3px rgba(0,0,0,0.77);
+
+  @media (min-width: 800px) {
+    width: 600px;
+  }
+`;
+
+const PhotoDiv  = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 function Photo() {
   const [photo, setPhoto] = useState('');
@@ -30,16 +51,16 @@ function Photo() {
   }, [dd, mm, yyyy])
 
   return (
-    <div className="photo-div">
+    <PhotoDiv>
       <DatePicker
         onChange={onChange}
         value={newDate}
         format='yyyy-MM-dd'
         maxDate={new Date()}
       />
-      <img className="nasa-photo" src={photo} alt=""/>
+      <StyledPhoto className="nasa-photo" src={photo} alt=""/>
       <Data title={title} about={about} date={date}/>
-    </div>
+    </PhotoDiv>
   )
 }
 
