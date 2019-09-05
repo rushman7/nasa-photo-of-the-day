@@ -54,3 +54,9 @@ button:hover {
   background: rgb(112, 223, 223);
   color: white;
 }
+
+.data {
+  width: 85%;
+  margin: 10px auto;
+  padding: 2%;
+}
