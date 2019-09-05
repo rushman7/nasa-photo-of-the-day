@@ -10,9 +10,15 @@ function Photo() {
   const [date, setDate] = useState('');
   const [newDate, setNewDate] = useState(new Date());
 
+  let dd = newDate.getDate();
+  let mm = newDate.getMonth()+1;
+  let yyyy = newDate.getFullYear();
+
+  const onChange = newDate => setNewDate(newDate)
+
   useEffect(() => {
     const fetchPhoto = () => 
-      axios.get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2016-12-08`)
+      axios.get(`https://api.nasa.gov/planetary/apod?api_key=2IHlxCsWWLtexHqizaiDCbZeuFMy929Fb9XqdxOx&date=${yyyy}-${mm}-${dd}`)
         .then(photo => {
           setPhoto(photo.data.url)
           setTitle(photo.data.title)
@@ -20,10 +26,7 @@ function Photo() {
           setDate(photo.data.date)
         });
       fetchPhoto()
-  }, [])
-
-  const onChange = newDate => setNewDate(newDate)
-  console.log(newDate);
+  }, [onChange])
 
   return (
     <div className="photo-div">
